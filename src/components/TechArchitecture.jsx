@@ -1,0 +1,117 @@
+const sidebarLinks = [
+  { icon: '🔷', label: 'Architecture Diagram' },
+  { icon: '🗂️', label: 'ERD Mapping' },
+  { icon: '⚙️', label: 'REST API (Django)' },
+  { icon: '🔐', label: 'JWT Auth Flow' },
+]
+
+const cloudItems = [
+  { label: 'Firestore NoSQL', desc: 'Scalable data persistence' },
+  { label: 'Auth Guards', desc: 'Serverless Firebase Rules' },
+]
+
+const backendItems = [
+  { label: 'Serializers', desc: 'DRF data integration' },
+  { label: 'AI Endpoints', desc: 'SCNN layer integration' },
+]
+
+function TechItem({ items }) {
+  return items.map((item) => (
+    <div key={item.label} style={{
+      display: 'flex', alignItems: 'flex-start', gap: 10,
+      padding: '10px 0', borderTop: '1px solid #f0f0f0',
+    }}>
+      <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#1a7a4a', marginTop: 4, flexShrink: 0 }} />
+      <div>
+        <div style={{ fontSize: 13, fontWeight: 600, color: '#111', marginBottom: 2 }}>{item.label}</div>
+        <div style={{ fontSize: 11, color: '#999' }}>{item.desc}</div>
+      </div>
+    </div>
+  ))
+}
+
+export default function TechArchitecture() {
+  return (
+    <section id="docs" style={{ padding: '100px 0', background: '#f5f7f5' }}>
+      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 32px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: 64, alignItems: 'start' }}>
+
+          {/* Sidebar */}
+          <div>
+            <h2 style={{ fontSize: 26, fontWeight: 700, letterSpacing: '-.5px', lineHeight: 1.2, marginBottom: 14 }}>
+              Technical Architecture
+            </h2>
+            <p style={{ fontSize: 13, color: '#666', lineHeight: 1.65, marginBottom: 28 }}>
+              An overview of the high-performance stack powering HealthyTrition AI.
+            </p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 2 }}>
+              {sidebarLinks.map((l) => (
+                <li key={l.label}>
+                  <a href="#" style={{
+                    display: 'flex', alignItems: 'center', gap: 10,
+                    padding: '9px 12px', fontSize: 13, fontWeight: 500,
+                    color: '#555', borderRadius: 8, textDecoration: 'none',
+                    transition: 'background .15s',
+                  }}>
+                    <span style={{ fontSize: 14 }}>{l.icon}</span>
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right Panel */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            {/* Tech Cards Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+
+              {/* Cloud Infrastructure */}
+              <div style={{ background: '#fff', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Cloud Infrastructure</span>
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.5px', padding: '3px 8px', borderRadius: 20, background: '#dbeafe', color: '#1e40af' }}>REACT</span>
+                </div>
+                <TechItem items={cloudItems} />
+              </div>
+
+              {/* Backend Core */}
+              <div style={{ background: '#fff', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Backend Core</span>
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.5px', padding: '3px 8px', borderRadius: 20, background: '#e8f5ee', color: '#155a37' }}>DJANGO/DRF</span>
+                </div>
+                <TechItem items={backendItems} />
+              </div>
+            </div>
+
+            {/* API Docs Banner */}
+            <div style={{
+              background: '#1a1a1a', borderRadius: 12,
+              padding: '18px 24px',
+              display: 'flex', alignItems: 'center',
+              justifyContent: 'space-between', gap: 24,
+            }}>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 4 }}>
+                  Explore the Full API Documentation
+                </div>
+                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>
+                  Review our comprehensive Swagger/Postman collection.
+                </div>
+              </div>
+              <a href="#" style={{
+                background: '#1a7a4a', color: '#fff',
+                fontSize: 10, fontWeight: 700, letterSpacing: '.6px',
+                padding: '10px 18px', borderRadius: 6,
+                textDecoration: 'none', whiteSpace: 'nowrap',
+              }}>
+                OPEN DOCS
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
