@@ -2,23 +2,23 @@ const docs = [
   {
     icon: '📄',
     iconBg: '#e6f4ea',
-    title: 'User Manual',
-    description: 'Comprehensive guide accompanying the consumer synthesis dashboard and macro display.',
+    title: 'Manual de Usuario',
+    description: 'Manual completo de usuario detallado para la utilización del proyecto.',
     action: 'DOWNLOAD PDF ↓',
   },
   {
     icon: '⚙️',
     iconBg: '#e8f0fe',
-    title: 'Installation Guide',
-    description: 'Step-by-step technical setup for local development and production environments.',
+    title: 'Guía de Instalación',
+    description: 'Guía paso a paso para la instalación local del proyecto en entornos de desarrollo y producción.',
     action: 'DOWNLOAD PDF ↓',
   },
   {
     icon: '📅',
     iconBg: '#e6f4ea',
-    title: 'Project Schedule',
-    description: 'Gantt chart mapping the iterative development cycles and milestones.',
-    action: 'VIEW SCHEDULE ↗',
+    title: 'Plan de Proyecto',
+    description: 'Plan de proyecto detallado para la gestión de desarrollo iterativo y de tareas.',
+    action: 'VER PLAN ↗',
   },
 ]
 
@@ -30,9 +30,9 @@ export default function ProjectManagement() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <h2 style={{ fontSize: 26, fontWeight: 700, letterSpacing: '-.5px', marginBottom: 8 }}>
-            Project Management
+            Gestión de Proyecto
           </h2>
-          <p style={{ fontSize: 14, color: '#666' }}>Methodological execution and delivery assets.</p>
+          <p style={{ fontSize: 14, color: '#666' }}>Recursos metodológicos para la ejecución y entrega del proyecto.</p>
         </div>
 
         {/* Cards */}

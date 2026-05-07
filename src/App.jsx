@@ -29,7 +29,7 @@ export default function App() {
       <style>{globalStyle}</style>
       <Navbar />
       <Hero />
-      <Features />
+      {/* Features */}
       <TechArchitecture />
       <ProjectManagement />
       <Team />

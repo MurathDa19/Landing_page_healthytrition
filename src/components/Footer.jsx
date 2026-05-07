@@ -1,4 +1,4 @@
-const footerLinks = ['Signup', 'LinkedIn', 'Documentation', 'Privacy']
+const footerLinks = ['Registro', 'LinkedIn', 'Documentación', 'Privacidad']
 
 export default function Footer() {
   return (

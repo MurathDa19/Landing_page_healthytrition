@@ -1,18 +1,28 @@
 const sidebarLinks = [
-  { icon: '🔷', label: 'Architecture Diagram' },
-  { icon: '🗂️', label: 'ERD Mapping' },
+  { icon: '🔷', label: 'Diagrama de arquitectura' },
+  { icon: '🗂️', label: 'Diseño de ERD' },
   { icon: '⚙️', label: 'REST API (Django)' },
   { icon: '🔐', label: 'JWT Auth Flow' },
 ]
 
 const cloudItems = [
-  { label: 'Firestore NoSQL', desc: 'Scalable data persistence' },
+  { label: 'Firestore NoSQL', desc: 'Persistencia de datos escalable' },
   { label: 'Auth Guards', desc: 'Serverless Firebase Rules' },
 ]
 
+const cloudinary = [
+  { label: 'Gestion multimedia', desc: 'Gestión de imágenes y videos basada en la nube para aplicaciones web y móviles' },
+  { label: 'API RESTful', desc: ' API RESTful para la integración con la aplicación móvil.' },
+]
+
+const foodApi = [
+  { label: 'Recurso de comida', desc: 'Recurso de comida para web y móviles' },
+  { label: 'Data API', desc: ' Entrega de datos nutricionales.' },
+]
+
 const backendItems = [
-  { label: 'Serializers', desc: 'DRF data integration' },
-  { label: 'AI Endpoints', desc: 'SCNN layer integration' },
+  { label: 'Serializadores', desc: 'Integración de datos con DRF' },
+  { label: 'Modelos', desc: 'Integración de capas SCNN con SCNN' },
 ]
 
 function TechItem({ items }) {
@@ -39,10 +49,10 @@ export default function TechArchitecture() {
           {/* Sidebar */}
           <div>
             <h2 style={{ fontSize: 26, fontWeight: 700, letterSpacing: '-.5px', lineHeight: 1.2, marginBottom: 14 }}>
-              Technical Architecture
+              Arquitectura Tecnológica
             </h2>
             <p style={{ fontSize: 13, color: '#666', lineHeight: 1.65, marginBottom: 28 }}>
-              An overview of the high-performance stack powering HealthyTrition AI.
+              Una vista prev general de la pila de alto rendimiento que permite que la tecnología HealthyTrition AI.
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 2 }}>
               {sidebarLinks.map((l) => (
@@ -66,19 +76,35 @@ export default function TechArchitecture() {
             {/* Tech Cards Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
 
-              {/* Cloud Infrastructure */}
+              {/* Infraestructura Nube */}
               <div style={{ background: '#fff', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Cloud Infrastructure</span>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Infraestructura en la Nube</span>
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.5px', padding: '3px 8px', borderRadius: 20, background: '#dbeafe', color: '#1e40af' }}>REACT</span>
                 </div>
                 <TechItem items={cloudItems} />
+              </div>
+              {/* API's utilizadas */}
+              <div style={{ background: '#fff', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Cloudinary</span>
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.5px', padding: '3px 8px', borderRadius: 20, background: '#dbeafe', color: '#1e40af' }}>API</span>
+                </div>
+                <TechItem items={cloudinary} />
+              </div>
+
+              <div style={{ background: '#fff', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Fast Food API</span>
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.5px', padding: '3px 8px', borderRadius: 20, background: '#dbeafe', color: '#1e40af' }}>API</span>
+                </div>
+                <TechItem items={foodApi} />
               </div>
 
               {/* Backend Core */}
               <div style={{ background: '#fff', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Backend Core</span>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Core Backend</span>
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.5px', padding: '3px 8px', borderRadius: 20, background: '#e8f5ee', color: '#155a37' }}>DJANGO/DRF</span>
                 </div>
                 <TechItem items={backendItems} />
@@ -94,10 +120,10 @@ export default function TechArchitecture() {
             }}>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 4 }}>
-                  Explore the Full API Documentation
+                  Explora la documentación de API completa
                 </div>
                 <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>
-                  Review our comprehensive Swagger/Postman collection.
+                  Revise nuestra colección completa Swagger/Postman.
                 </div>
               </div>
               <a href="#" style={{
@@ -106,7 +132,7 @@ export default function TechArchitecture() {
                 padding: '10px 18px', borderRadius: 6,
                 textDecoration: 'none', whiteSpace: 'nowrap',
               }}>
-                OPEN DOCS
+                ABRIR DOCS
               </a>
             </div>
           </div>

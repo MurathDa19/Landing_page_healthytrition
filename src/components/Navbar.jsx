@@ -47,14 +47,14 @@ export default function Navbar() {
         {/* Actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <a href="#" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.5px', color: '#666', textDecoration: 'none' }}>
-            VIEW ON GITHUB
+            VER EN GITHUB
           </a>
           <a href="#" style={{
             background: '#1a7a4a', color: '#fff',
             fontSize: 11, fontWeight: 700, letterSpacing: '.5px',
             padding: '9px 18px', borderRadius: 6, textDecoration: 'none',
           }}>
-            GET STARTED
+            COMENZAR
           </a>
         </div>
       </div>

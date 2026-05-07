@@ -3,7 +3,7 @@ export default function Hero() {
     <section id="intro" style={{ background: '#f5f7f5', padding: '80px 0 100px', overflow: 'hidden' }}>
       <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 60 }}>
 
-        {/* Left Content */}
+        {/* Contenido izquierdo */}
         <div style={{ maxWidth: 480 }}>
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '1.8px', color: '#888', marginBottom: 20, textTransform: 'uppercase' }}>
             El Contador de Calorías
