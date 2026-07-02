@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { useIsMobile } from '../hooks/useIsMobile'
 
-const navLinks = ['Intro', 'Product', 'Docs', 'Management', 'About']
+const navLinks = ['Intro', 'Docs', 'Management', 'About']
 
 export default function Navbar() {
   const [active, setActive] = useState('Intro')
+  const [menuOpen, setMenuOpen] = useState(false)
+  const isMobile = useIsMobile()
 
   return (
     <nav style={{
@@ -13,7 +16,7 @@ export default function Navbar() {
       borderBottom: '1px solid #e8e8e8',
     }}>
       <div style={{
-        maxWidth: 1160, margin: '0 auto', padding: '0 32px',
+        maxWidth: 1160, margin: '0 auto', padding: '0 24px',
         display: 'flex', alignItems: 'center',
         justifyContent: 'space-between', height: 58,
       }}>
@@ -23,19 +26,59 @@ export default function Navbar() {
           <span><span style={{ color: '#1a7a4a' }}>Healthy</span>Trition</span>
         </a>
 
-        {/* Nav Links */}
-        <ul style={{ display: 'flex', listStyle: 'none', gap: 2, padding: 0, margin: 0 }}>
+        {isMobile ? (
+          // Botón hamburguesa
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              fontSize: 22, padding: 4, lineHeight: 1,
+            }}
+            aria-label="Abrir menú"
+          >
+            {menuOpen ? '✕' : '☰'}
+          </button>
+        ) : (
+          // Nav Links normal
+          <ul style={{ display: 'flex', listStyle: 'none', gap: 2, padding: 0, margin: 0 }}>
+            {navLinks.map((link) => (
+              <li key={link}>
+                
+                <a  href={`#${link.toLowerCase()}`}
+                  onClick={() => setActive(link)}
+                  style={{
+                    display: 'block', padding: '6px 13px',
+                    fontSize: 13, fontWeight: active === link ? 600 : 500,
+                    color: active === link ? '#111' : '#666',
+                    borderRadius: 6, textDecoration: 'none',
+                    transition: 'color .15s, background .15s',
+                  }}
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {/* Menú desplegable en móvil */}
+      {isMobile && menuOpen && (
+        <ul style={{
+          listStyle: 'none', margin: 0, padding: '8px 24px 16px',
+          display: 'flex', flexDirection: 'column', gap: 4,
+          borderTop: '1px solid #e8e8e8',
+        }}>
           {navLinks.map((link) => (
             <li key={link}>
-              <a
-                href={`#${link.toLowerCase()}`}
-                onClick={() => setActive(link)}
+              
+              <a href={`#${link.toLowerCase()}`}
+                onClick={() => { setActive(link); setMenuOpen(false) }}
                 style={{
-                  display: 'block', padding: '6px 13px',
-                  fontSize: 13, fontWeight: active === link ? 600 : 500,
+                  display: 'block', padding: '10px 4px',
+                  fontSize: 14, fontWeight: active === link ? 600 : 500,
                   color: active === link ? '#111' : '#666',
-                  borderRadius: 6, textDecoration: 'none',
-                  transition: 'color .15s, background .15s',
+                  textDecoration: 'none',
                 }}
               >
                 {link}
@@ -43,21 +86,7 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-
-        {/* Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <a href="#" style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.5px', color: '#666', textDecoration: 'none' }}>
-            VER EN GITHUB
-          </a>
-          <a href="#" style={{
-            background: '#1a7a4a', color: '#fff',
-            fontSize: 11, fontWeight: 700, letterSpacing: '.5px',
-            padding: '9px 18px', borderRadius: 6, textDecoration: 'none',
-          }}>
-            COMENZAR
-          </a>
-        </div>
-      </div>
+      )}
     </nav>
   )
 }

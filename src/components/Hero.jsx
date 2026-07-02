@@ -1,14 +1,31 @@
+import { useIsMobile } from '../hooks/useIsMobile'
+
 export default function Hero() {
+  const isMobile = useIsMobile()
+
   return (
-    <section id="intro" style={{ background: '#f5f7f5', padding: '80px 0 100px', overflow: 'hidden' }}>
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 60 }}>
+    <section id="intro" style={{ background: '#f5f7f5', padding: isMobile ? '48px 0 60px' : '80px 0 100px', overflow: 'hidden' }}>
+      <div style={{
+        maxWidth: 1160, margin: '0 auto', padding: '0 24px',
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        alignItems: isMobile ? 'flex-start' : 'center',
+        justifyContent: 'space-between',
+        gap: isMobile ? 40 : 60,
+      }}>
 
         {/* Contenido izquierdo */}
-        <div style={{ maxWidth: 480 }}>
+        <div style={{ maxWidth: isMobile ? '100%' : 480 }}>
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '1.8px', color: '#888', marginBottom: 20, textTransform: 'uppercase' }}>
             El Contador de Calorías
           </p>
-          <h1 style={{ fontFamily: '"DM Serif Display", serif', fontSize: 52, lineHeight: 1.08, color: '#111', marginBottom: 20, letterSpacing: '-1.5px' }}>
+          <h1 style={{
+            fontFamily: '"DM Serif Display", serif',
+            fontSize: isMobile ? 34 : 52,
+            lineHeight: 1.12,
+            color: '#111', marginBottom: 20,
+            letterSpacing: '-1px',
+          }}>
             HealthyTrition:{' '}
             <span style={{ color: '#1a7a4a' }}>Scan de comidas potenciado por la IA</span>
           </h1>
@@ -24,21 +41,14 @@ export default function Hero() {
             }}>
               DESCARGAR APP
             </a>
-            <a href="#" style={{
-              background: 'transparent', color: '#111',
-              fontSize: 11, fontWeight: 700, letterSpacing: '.6px',
-              padding: '12px 22px', borderRadius: 7, textDecoration: 'none',
-              border: '1.5px solid #ddd',
-            }}>
-              EXPLORA EL CÓDIGO
-            </a>
           </div>
         </div>
 
         {/* Right — Phone Mockup */}
-        <div style={{ flexShrink: 0 }}>
+        <div style={{ flexShrink: 0, alignSelf: isMobile ? 'center' : 'auto' }}>
           <div style={{
-            width: 230, height: 400,
+            width: isMobile ? 190 : 230,
+            height: isMobile ? 330 : 400,
             background: '#fff',
             borderRadius: 36,
             border: '6px solid #1a1a1a',
