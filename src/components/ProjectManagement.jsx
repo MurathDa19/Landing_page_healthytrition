@@ -1,3 +1,5 @@
+import { useIsMobile } from '../hooks/useIsMobile'
+
 const docs = [
   {
     icon: '📄',
@@ -23,20 +25,26 @@ const docs = [
 ]
 
 export default function ProjectManagement() {
+  const isMobile = useIsMobile()
+
   return (
-    <section id="management" style={{ padding: '100px 0', background: '#fff' }}>
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 32px' }}>
+    <section id="management" style={{ padding: isMobile ? '60px 0' : '100px 0', background: '#fff' }}>
+      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px' }}>
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <h2 style={{ fontSize: 26, fontWeight: 700, letterSpacing: '-.5px', marginBottom: 8 }}>
+        <div style={{ textAlign: 'center', marginBottom: isMobile ? 36 : 56 }}>
+          <h2 style={{ fontSize: isMobile ? 22 : 26, fontWeight: 700, letterSpacing: '-.5px', marginBottom: 8 }}>
             Gestión de Proyecto
           </h2>
           <p style={{ fontSize: 14, color: '#666' }}>Recursos metodológicos para la ejecución y entrega del proyecto.</p>
         </div>
 
         {/* Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+          gap: 20,
+        }}>
           {docs.map((doc) => (
             <div key={doc.title} style={{
               background: '#fff',

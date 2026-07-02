@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const members = [
   {
@@ -13,8 +14,8 @@ const members = [
   {
     initials: 'DM',
     name: 'David Moncada.',
-    role: 'LEAD DEVELOPER',
-    description: 'Expert in Django REST frameworks and cloud infrastructure for real-time biometric synchronization.',
+    role: 'DESARROLLADOR LIDER',
+    description: 'Experto en Django, desarrollador del backend de nuestra aplicacion movil.',
     email: 'david@healthytrition.io',
     linkedin: 'linkedin.com/in/davidmoncada',
     location: 'Mosquera, Colombia',
@@ -22,8 +23,8 @@ const members = [
   {
     initials: 'FM',
     name: 'Fredi Millan',
-    role: 'BACKEND DEVELOPER',
-    description: 'Dedicated frontend architect focused on creating intuitive interfaces for metabolic synthesis optimization.',
+    role: 'DESARROLLADOR BACKEND',
+    description: 'Desarrollador contribuidor a la optimizacion de nuestra aplicacion.',
     email: 'fredi@healthytrition.io',
     linkedin: 'linkedin.com/in/fredimillan',
     location: 'Mosquera, Colombia',
@@ -31,8 +32,8 @@ const members = [
   {
     initials: 'DL',
     name: 'David Lozano',
-    role: 'AI SPECIALIST',
-    description: 'Specialized in AI recipe filtering and semantic search for ingredient bio-availability optimization.',
+    role: 'DESARROLLADOR FRONTEND',
+    description: 'Desarrollador encargado de crear la interfaz grafica de la app movil.',
     email: 'david@healthytrition.io',
     linkedin: 'linkedin.com/in/davidlozano',
     location: 'Barranquilla, Colombia',
@@ -40,8 +41,8 @@ const members = [
   {
     initials: 'NJ',
     name: 'Nicolas Jimenez',
-    role: 'SYSTEMS ARCHITECT',
-    description: 'Systems architect prioritizing full-stack integrity and nonlinear technical documentation integration.',
+    role: 'DISEÑADOR DE INTERFAZ',
+    description: 'Persona que se encargo de la creacion y el diseño Frontend de la pagina web y la app movil.',
     email: 'nicolas@healthytrition.io',
     linkedin: 'linkedin.com/in/nicolasjimenez',
     location: 'Bogotá, Colombia',
@@ -103,6 +104,11 @@ export default function Team() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [sent, setSent] = useState(false)
 
+  const isMobile = useIsMobile(768)   // < 768px -> 1 columna
+  const isTablet = useIsMobile(1024)  // < 1024px -> 2 columnas
+
+  const columns = isMobile ? 1 : isTablet ? 2 : 3
+
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = (e) => {
@@ -112,12 +118,12 @@ export default function Team() {
   }
 
   return (
-    <section id="about" style={{ padding: '100px 0', background: '#f5f7f5' }}>
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 32px' }}>
+    <section id="about" style={{ padding: isMobile ? '60px 0' : '100px 0', background: '#f5f7f5' }}>
+      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px' }}>
 
         {/* Header */}
-        <div style={{ marginBottom: 44 }}>
-          <h2 style={{ fontSize: 26, fontWeight: 700, letterSpacing: '-.5px', marginBottom: 8 }}>
+        <div style={{ marginBottom: isMobile ? 28 : 44 }}>
+          <h2 style={{ fontSize: isMobile ? 22 : 26, fontWeight: 700, letterSpacing: '-.5px', marginBottom: 8 }}>
             El Equipo de Desarrollo
           </h2>
           <p style={{ fontSize: 14, color: '#666', maxWidth: 460, lineHeight: 1.65 }}>
@@ -125,14 +131,18 @@ export default function Team() {
           </p>
         </div>
 
-        {/* Grid: 3 cols */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        {/* Grid: responsive columns */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: `repeat(${columns}, 1fr)`,
+          gap: isMobile ? 14 : 16,
+        }}>
           {members.map((m) => <MemberCard key={m.name} m={m} />)}
 
           {/* Contact Form */}
           <div style={{
             background: '#fff', border: '1.5px solid #e8e8e8',
-            borderRadius: 12, padding: '22px',
+            borderRadius: 12, padding: isMobile ? '18px' : '22px',
           }}>
             <h3 style={{ fontSize: 15, fontWeight: 700, color: '#111', marginBottom: 20 }}>
               ¡Envianos un mensaje!

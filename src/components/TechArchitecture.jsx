@@ -1,3 +1,5 @@
+import { useIsMobile } from '../hooks/useIsMobile'
+
 const sidebarLinks = [
   { icon: '🔷', label: 'Diagrama de arquitectura' },
   { icon: '🗂️', label: 'Diseño de ERD' },
@@ -41,20 +43,33 @@ function TechItem({ items }) {
 }
 
 export default function TechArchitecture() {
+  const isMobile = useIsMobile(768)
+  const isTablet = useIsMobile(1024)
+
   return (
-    <section id="docs" style={{ padding: '100px 0', background: '#f5f7f5' }}>
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: 64, alignItems: 'start' }}>
+    <section id="docs" style={{ padding: isMobile ? '60px 0' : '100px 0', background: '#f5f7f5' }}>
+      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '220px 1fr',
+          gap: isMobile ? 32 : 64,
+          alignItems: 'start',
+        }}>
 
           {/* Sidebar */}
           <div>
-            <h2 style={{ fontSize: 26, fontWeight: 700, letterSpacing: '-.5px', lineHeight: 1.2, marginBottom: 14 }}>
+            <h2 style={{ fontSize: isMobile ? 22 : 26, fontWeight: 700, letterSpacing: '-.5px', lineHeight: 1.2, marginBottom: 14 }}>
               Arquitectura Tecnológica
             </h2>
             <p style={{ fontSize: 13, color: '#666', lineHeight: 1.65, marginBottom: 28 }}>
               Una vista prev general de la pila de alto rendimiento que permite que la tecnología HealthyTrition AI.
             </p>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <ul style={{
+              listStyle: 'none', padding: 0, margin: 0,
+              display: isMobile ? 'grid' : 'flex',
+              gridTemplateColumns: isMobile ? '1fr 1fr' : undefined,
+              flexDirection: 'column', gap: isMobile ? 4 : 2,
+            }}>
               {sidebarLinks.map((l) => (
                 <li key={l.label}>
                   <a href="#" style={{
@@ -74,7 +89,11 @@ export default function TechArchitecture() {
           {/* Right Panel */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {/* Tech Cards Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : isTablet ? '1fr' : '1fr 1fr',
+              gap: 14,
+            }}>
 
               {/* Infraestructura Nube */}
               <div style={{ background: '#fff', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
@@ -114,9 +133,11 @@ export default function TechArchitecture() {
             {/* API Docs Banner */}
             <div style={{
               background: '#1a1a1a', borderRadius: 12,
-              padding: '18px 24px',
-              display: 'flex', alignItems: 'center',
-              justifyContent: 'space-between', gap: 24,
+              padding: isMobile ? '20px' : '18px 24px',
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              alignItems: isMobile ? 'flex-start' : 'center',
+              justifyContent: 'space-between', gap: isMobile ? 16 : 24,
             }}>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 4 }}>
@@ -131,6 +152,8 @@ export default function TechArchitecture() {
                 fontSize: 10, fontWeight: 700, letterSpacing: '.6px',
                 padding: '10px 18px', borderRadius: 6,
                 textDecoration: 'none', whiteSpace: 'nowrap',
+                alignSelf: isMobile ? 'stretch' : 'auto',
+                textAlign: isMobile ? 'center' : 'left',
               }}>
                 ABRIR DOCS
               </a>
