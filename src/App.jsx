@@ -31,7 +31,6 @@ export default function App() {
       <Hero />
       {/* Features */}
       <TechArchitecture />
-      <ProjectManagement />
       <Team />
       <Footer />
     </>
