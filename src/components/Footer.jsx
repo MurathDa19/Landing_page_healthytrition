@@ -1,6 +1,6 @@
 import { useIsMobile } from '../hooks/useIsMobile'
 
-const footerLinks = ['Registro', 'LinkedIn', 'Documentación', 'Privacidad']
+const footerLinks = ['Registro', 'LinkedIn', 'Documentación', 'Terminos y condiciones']
 
 export default function Footer() {
   const isMobile = useIsMobile()

@@ -1,5 +1,6 @@
 import { useIsMobile } from '../hooks/useIsMobile'
 
+
 const sidebarLinks = [
   { icon: '🔷', label: 'Diagrama de arquitectura' },
   { icon: '🗂️', label: 'Diseño de ERD' },
@@ -106,7 +107,7 @@ export default function TechArchitecture() {
               {/* API's utilizadas */}
               <div style={{ background: '#fff', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Cloudinary</span>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>Clarifai</span>
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.5px', padding: '3px 8px', borderRadius: 20, background: '#dbeafe', color: '#1e40af' }}>API</span>
                 </div>
                 <TechItem items={cloudinary} />
@@ -141,13 +142,13 @@ export default function TechArchitecture() {
             }}>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 4 }}>
-                  Explora la documentación de API completa
+                  Explora la documentación del proyecto
                 </div>
                 <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>
-                  Revise nuestra colección completa Swagger/Postman.
+                  Revise nuestra planeacion y propuesta.
                 </div>
               </div>
-              <a href="#" style={{
+              <a href="/Docs/HealthyTrition2.pdf"  style={{
                 background: '#1a7a4a', color: '#fff',
                 fontSize: 10, fontWeight: 700, letterSpacing: '.6px',
                 padding: '10px 18px', borderRadius: 6,

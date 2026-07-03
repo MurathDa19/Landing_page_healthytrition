@@ -29,12 +29,13 @@ export default function Hero() {
             HealthyTrition:{' '}
             <span style={{ color: '#1a7a4a' }}>Scan de comidas potenciado por la IA</span>
           </h1>
-          <p style={{ fontSize: 14, lineHeight: 1.75, color: '#666', marginBottom: 36 }}>
+          <p style={{ fontSize: 14, lineHeight: 1.75, color: '#666', marginBottom: 30 }}>
             Resultado de diversos tipos de comidas, podras ver sus valores
             nutricionales tales como: calorías, azucares, carbohidratos, entre otros muchos mas.
           </p>
+          <p style={{ fontSize: 10, lineHeight: 1.75, color: '#373434ff'}}> * Al descargar la aplicacion manifiestas que estas de acuerdo con nuestros <a href='Docs/terminos-y-condiciones.pdf' style={{color: isMobile ? 'green' : 'darkgreen'}}>TERMINOS Y CONDICIONES</a></p>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            <a href="#" style={{
+            <a href="../../public/Apk/NutriApp.apk" download="NutriApp.apk" style={{
               background: '#1a7a4a', color: '#fff',
               fontSize: 11, fontWeight: 700, letterSpacing: '.6px',
               padding: '13px 22px', borderRadius: 7, textDecoration: 'none',
