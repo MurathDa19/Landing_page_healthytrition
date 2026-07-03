@@ -35,7 +35,7 @@ export default function Hero() {
           </p>
           <p style={{ fontSize: 10, lineHeight: 1.75, color: '#373434ff'}}> * Al descargar la aplicacion manifiestas que estas de acuerdo con nuestros <a href='Docs/terminos-y-condiciones.pdf' style={{color: isMobile ? 'green' : 'darkgreen'}}>TERMINOS Y CONDICIONES</a></p>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            <a href="../../public/Apk/NutriApp.apk" download="NutriApp.apk" style={{
+            <a href="/Apk/NutriApp.apk" download="NutriApp.apk" style={{
               background: '#1a7a4a', color: '#fff',
               fontSize: 11, fontWeight: 700, letterSpacing: '.6px',
               padding: '13px 22px', borderRadius: 7, textDecoration: 'none',
